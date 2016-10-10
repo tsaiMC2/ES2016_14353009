@@ -29,7 +29,7 @@ Requirements：
 
 Steps:
 
-1. install ant  <a href="url">About Ant
+1. install ant  <a href="url">About Ant</a>
 
 ```linux
 $ sudo apt-get install ant
@@ -47,7 +47,7 @@ $ sudo apt-get install ant
 
 2. install SystemC
 
-   Get the package "systemc-2.3.1.tgz".
+   Get the package "systemc-2.3.1.tgz".			
 
    ![](img/systemC_tar.png)
 
@@ -57,9 +57,9 @@ $ sudo apt-get install ant
 $ tar -zxvf systemc-2.3.1.tgz
 ```
 
-​	![](img/systemC_unzip.png)
+![](img/systemC_unzip.png)
 
-​	Compile systemC :
+​	Configure systemC :
 
 ```linux
 $ cd systemc-2.3.1
@@ -68,7 +68,51 @@ $ cd objdir
 $ ../configure CXX=g++ --disable-async-updates 
 ```
 
-​	Seeing following info means that you have succefully compiled systemC.
+​	Seeing following info means that you have successfully configured systemC.
+
+​	![](img/systemC_successfully_configure.png)
+
+​	Compile systemC  and record the current execution path :
+
+```linux
+$ sudo make install
+$ pwd
+```
+
+​	The current execution path should have following files, note the current execution path for compiling DOL.
+
+​	![](img/systemC_successfully_installed.png)
+
+
+
+3. install DOL
+
+   Get the package "dol_ethz.zip" and unzip it to a newly created file "dol".
+
+```linux
+$ sudo wget http://www.tik.ee.ethz.ch/~shapes/downloads/dol_ethz.zip
+$ mkdir dol
+$ unzip dol_ethz.zip -d dol
+```
+
+​	Edit "build_zip.xml" in dol file : replace YYY with the execution path we get in the step before the last one. If the Linux operation is of 64bit, one should also alter `lib-linux` to `lib-linux64` .
+
+```xml
+<property name="systemc.inc" value="YYY/include"/>
+<property name="systemc.lib" value="YYY/lib-linux/libsystemc.a"/>
+```
+
+​	Compile DOL :
+
+```linux
+$ ant -f build_zip.xml all
+```
+
+​	Seeing following info means that you have successfully installed DOL.
+
+​	![](img/DOL_successfully_built.png)
+
+​	Results may not be the same, for I rebuilt it again. However, one must see "BUILD SUCCESSFUL".
 
 
 
