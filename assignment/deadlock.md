@@ -11,7 +11,7 @@
 
 **<u>Ubuntu上模拟死锁</u>**：
 
-1. 创建两个类A和B，互相调用对方的实例，表示资源的占用：
+1.创建两个类A和B，互相调用对方的实例，表示资源的占用：
 
 ```java
 class A{
@@ -39,7 +39,7 @@ class B{
 
 当线程访问一个实例化了的对象的synchronized同步代码块或同步方法时，其他线程对object中所有其它synchronized同步代码块或同步方法的访问将被阻塞。
 
-2. 写一个deadLock.java，调用A、B类的同步方法来模拟死锁，代码如下：
+2.写一个deadLock.java，调用A、B类的同步方法来模拟死锁，代码如下：
 
 ```java
 class Deadlock implements Runnable{
@@ -62,7 +62,7 @@ class Deadlock implements Runnable{
 }
 ```
 
-3. 写一个.sh文件循环调用deadLock.class直至死锁产生。
+3.写一个.sh文件循环调用deadLock.class直至死锁产生。
 
 ```sh
 #!/bin/bash
@@ -80,7 +80,7 @@ done
 $bash Deadlock.sh
 ```
 
-在约76次就遇到死锁了：
+在约91次就遇到死锁了：
 
 ![](../img/deadlock.png)
 
