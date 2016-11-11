@@ -4,7 +4,7 @@
 
 ##### **<u>ROS的安装</u>**
 
-1. 需要linux环境，网上有具体教程，这里使用Ubuntu。
+1.需要linux环境，网上有具体教程，这里使用Ubuntu。
 
    首先要知道自己Ubuntu的版本号，在命令行键入：
 
@@ -15,20 +15,20 @@ cat /etc/issue
 Ubuntu 14.04，15.04 请参考：http://wiki.ros.org/jade/Installation/Ubuntu
 Ubuntu 15.10，16.04 请参考：http://wiki.ros.org/kinetic/Installation/Ubuntu
 
-2. 配置Ubuntu repositories，详见https://help.ubuntu.com/community/Repositories/Ubuntu
-3. 建立sources.list
+2.配置Ubuntu repositories，详见https://help.ubuntu.com/community/Repositories/Ubuntu
+3.建立sources.list
 
 ```sh
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 ```
 
-2. 建立钥匙
+4.建立钥匙
 
 ```sh
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
 ```
 
-3. 安装ROS kinetic
+5.安装ROS kinetic
 
    重新update一下确认Debian包索引是最新的：
 
@@ -42,7 +42,7 @@ sudo apt-get update
 sudo apt-get install ros-kinetic-desktop-full
 ```
 
-4. 初始化rosdep
+6.初始化rosdep
 
 
 ```sh
@@ -50,14 +50,14 @@ sudo rosdep init
 rosdep update
 ```
 
-5. 搭建环境
+7.搭建环境
 
 ```sh
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-6. 得到rosinstall
+8.得到rosinstall
 
 ```sh
 sudo apt-get install python-rosinstall
